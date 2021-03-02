@@ -4,7 +4,7 @@ pipeline {
       stage('GIT') 
          { 
          steps{
-            git 'https://github.com/spring-guides/gs-maven/tree/master/initial'
+            git 'https://github.com/veenagit123/Java_poject_sample.git'
          }
        }       
    
