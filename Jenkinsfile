@@ -7,7 +7,7 @@ pipeline {
             git 'https://github.com/veenagit123/Java_poject_sample.git'
          }
        }       
-     stage('Build') 
+     stage('Build dev branch') 
          { 
          steps{ 
             sh "mvn complie"
