@@ -49,6 +49,7 @@ pipeline {
               withCredentials([kubeconfigFile(credentialsId: 'Kubernates_config_file', variable: 'KUBECONFIG')]) 
                {
                 sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
                 
                }
              
