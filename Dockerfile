@@ -1,5 +1,6 @@
 
 FROM java:8-jdk-alpine
+EXPOSE 80
 
 COPY ./target/gs-maven-0.1.0.jar /usr/app/
 
