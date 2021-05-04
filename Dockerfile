@@ -1,7 +1,10 @@
 
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-ARG JAR_FILE=target/original-gs-maven-0.1.0.jar
-ADD ${JAR_FILE} my.jar
-ENTRYPOINT ["java","-jar","/my.jar"]
-CMD ["/bin/bash"]
+FROM java:8-jdk-alpine
+
+COPY ./target/original-gs-maven-0.1.0.jar /usr/app/
+
+WORKDIR /usr/app
+
+RUN sh -c 'touch original-gs-maven-0.1.0.jar'
+
+ENTRYPOINT ["java","-jar","original-gs-maven-0.1.0.jar"]
