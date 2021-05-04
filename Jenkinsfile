@@ -46,7 +46,7 @@ pipeline {
       stage("Kube deploy") {
            steps 
              { 
-              withCredentials([kubeconfigFile(credentialsId: 'Kubernates_config_file', variable: 'KUBECONFIG')]) 
+              withCredentials([kubeconfigContent(credentialsId: 'Kubernates_config_file', variable: 'KUBECONFIG_CONTENT')])
                {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
