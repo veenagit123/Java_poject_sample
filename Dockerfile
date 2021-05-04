@@ -9,4 +9,5 @@ COPY target/original-gs-maven-0.1.0.jar $PROJECT_HOME/my.jar
 
 WORKDIR  $PROJECT_HOME
 EXPOSE 80
-CMD java - jar my.jar
+
+ENTRYPOINT ["java","-jar","/my.jar"]
