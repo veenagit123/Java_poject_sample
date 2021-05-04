@@ -33,9 +33,10 @@ pipeline {
       stage("Docker Push") {
            steps 
              { 
-              withCredentials([usernamePassword(credentialsId: 'Docker_ID', passwordVariable: '', usernameVariable: '')]) 
+              withCredentials([string(credentialsId: 'Docker_ID_new', variable: 'Docker_ID_new')]) 
                {
-                  sh 'docker push dockerveen/myjar1 '
+                sh 'docker login -u dockerveen -p ${Docker_ID_new}'
+                sh 'docker push dockerveen/myjar1 '
                }
              
              }
@@ -45,3 +46,5 @@ pipeline {
        
      } 
 
+
+   
