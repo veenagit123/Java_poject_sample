@@ -28,6 +28,19 @@ pipeline {
               sh 'docker build . -t dockerveen/myjar1 '
              }
            }
+      
+      
+      stage("Docker Push") {
+           steps 
+             { 
+              withCredentials([usernamePassword(credentialsId: 'Docker_ID', passwordVariable: '', usernameVariable: '')]) 
+               {
+                  sh 'docker push dockerveen/myjar1 '
+               }
+             
+             }
+           }
+       
        }
        
      } 
