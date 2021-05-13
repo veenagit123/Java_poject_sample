@@ -1,11 +1,10 @@
+FROM openjdk:8-jre-alpine3.9
 
-FROM java:8-jdk-alpine
-EXPOSE 80
+EXPOSE 8080
 
 COPY ./target/gs-maven-0.1.0.jar /usr/app/
 
 WORKDIR /usr/app
 
-RUN sh -c 'touch gs-maven-0.1.0.jar'
 
-ENTRYPOINT ["java","-jar","gs-maven-0.1.0.jar"]
+CMD ["java","-jar","gs-maven-0.1.0.jar"]
