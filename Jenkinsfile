@@ -33,7 +33,7 @@ pipeline {
       stage("Docker Push") {
            steps 
              { 
-              withCredentials([string(credentialsId: 'Docker_ID_new', variable: 'Docker_ID_new')]) 
+              withCredentials([string(credentialsId: 'docker_id_final', variable: 'docker_id_final')])  
                {
                 sh 'docker login -u dockerveen -p ${Docker_ID_new}'
                 sh 'docker push dockerveen/myjar1 '
