@@ -43,7 +43,7 @@ pipeline {
               withCredentials([string(credentialsId: 'docker_id_final', variable: 'docker_id_final')])  
                {
                 sh 'docker login -u dockerveen -p ${docker_id_final}'
-                sh 'docker push dockerveen/myjar1 '
+                sh 'docker push dockerveen/myjar1:${docker_tag} '
                }
              
              }
