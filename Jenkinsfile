@@ -3,7 +3,7 @@ pipeline {
  agent any
  
  environment {
-  docker_tag = "getVersion()"
+  docker_tag = getVersion()
 }
 
  
