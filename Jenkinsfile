@@ -34,11 +34,7 @@ pipeline {
              }
            }
       
-      def getVersion()
-      {
-       def commitHash=sh returnStdout: true, script: 'git rev-parse --short HEAD'
-       return commitHash
-      }
+     
       
       
       stage("Docker Push") {
@@ -73,5 +69,9 @@ pipeline {
        
      } 
 
-
+ def getVersion()
+      {
+       def commitHash=sh returnStdout: true, script: 'git rev-parse --short HEAD'
+       return commitHash
+      }
    
