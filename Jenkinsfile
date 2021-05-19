@@ -30,7 +30,7 @@ pipeline {
        stage("Docker build") {
            steps 
              { 
-              sh 'docker build . -t dockerveen/myjar1 '
+              sh 'docker build . -t dockerveen/myjar1:${docker_tag}'
              }
            }
       
