@@ -2,6 +2,11 @@ pipeline {
 
  agent any
  
+ environment {
+  docker_tag = "getVersion()"
+}
+
+ 
   tools {  maven 'maven' }
  
      stages {
