@@ -29,12 +29,12 @@ pipeline {
       stage("Nexus upload") {
            steps 
              {    
-               def mavenpom: readMavenPom file: pom.xml
+               def mavenpom: readMavenPom file: 'pom.xml'
                 nexusArtifactUploader artifacts: [
                  [
                     artifactId: 'gs-maven', 
                     classifier: '', 
-                    file: 'target/gs-maven-${mavenpom.version}.jar', 
+                    file: "target/gs-maven-${mavenpom.version}.jar", 
                     type: 'jar'
                  ]
                 ], 
