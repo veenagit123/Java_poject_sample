@@ -28,12 +28,13 @@ pipeline {
            
       stage("Nexus upload") {
            steps 
-             {               
+             {    
+               def mavenpom: readMavenPom file: pom.xml
                 nexusArtifactUploader artifacts: [
                  [
                     artifactId: 'gs-maven', 
                     classifier: '', 
-                    file: 'target/gs-maven-0.1.0.jar', 
+                    file: 'target/gs-maven-${mavenpom.version}.jar', 
                     type: 'jar'
                  ]
                 ], 
@@ -43,7 +44,7 @@ pipeline {
                    nexusVersion: 'nexus3', 
                    protocol: 'http', 
                    repository: 'gs-maven', 
-                   version: '0.1.0'
+                   version: '${mavenpom.version}'
      
              }
            }
