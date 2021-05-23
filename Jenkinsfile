@@ -26,7 +26,29 @@ pipeline {
              }
            }
            
-           
+      stage("Nexus upload") {
+           steps 
+             {               
+                nexusArtifactUploader artifacts: [
+                 [
+                    artifactId: 'gs-maven', 
+                    classifier: '', 
+                    file: 'target/gs-maven0.1.0.jar', 
+                    type: 'jar'
+                 ]
+                ], 
+                   credentialsId: 'nexus', 
+                   groupId: 'org.springframework', 
+                   nexusUrl: '3.237.12.146:8081', 
+                   nexusVersion: 'nexus3', 
+                   protocol: 'http', 
+                   repository: 'gs-maven', 
+                   version: '0.1.0'
+     
+             }
+           }
+      
+          
        stage("Docker build") {
            steps 
              { 
