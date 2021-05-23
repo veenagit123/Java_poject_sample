@@ -29,6 +29,8 @@ pipeline {
       stage("Nexus upload") {
            steps 
              {    
+              script
+              {
                def mavenpom: readMavenPom file: 'pom.xml'
                 nexusArtifactUploader artifacts: [
                  [
@@ -46,6 +48,7 @@ pipeline {
                    repository: 'gs-maven', 
                    version: '${mavenpom.version}'
      
+             }
              }
            }
       
