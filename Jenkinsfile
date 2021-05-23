@@ -31,7 +31,7 @@ pipeline {
              {    
               script
               {
-               def mavenpom: readMavenPom file: 'pom.xml'
+               def mavenpom= readMavenPom file: 'pom.xml'
                 nexusArtifactUploader artifacts: [
                  [
                     artifactId: 'gs-maven', 
