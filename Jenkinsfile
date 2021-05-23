@@ -33,7 +33,7 @@ pipeline {
                  [
                     artifactId: 'gs-maven', 
                     classifier: '', 
-                    file: 'target/gs-maven0.1.0.jar', 
+                    file: 'target/gs-maven-0.1.0.jar', 
                     type: 'jar'
                  ]
                 ], 
